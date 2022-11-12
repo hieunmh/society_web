@@ -5,7 +5,7 @@
   <AuthenticatedLayout>
     <template #header>
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Create Community
+        Edit Community
       </h2>
     </template>
 
@@ -20,6 +20,12 @@
             </div>
 
             <div class="mt-4">
+              <InputLabel for="slug" value="Slug" />
+              <TextInput id="slug" type="text" class="mt-1 block w-full" v-model="form.slug"  autocomplete="slug" />
+              <InputError class="mt-2" :message="errors.slug" />
+            </div>
+
+            <div class="mt-4">
               <InputLabel for="description" value="Description" />
               <TextInput id="description" type="text" class="mt-1 block w-full" v-model="form.description"  autocomplete="description" />
               <InputError class="mt-2" :message="errors.description" />
@@ -27,7 +33,7 @@
             
             <div class="flex items-center justify-end mt-4">
               <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Store
+                Update
               </PrimaryButton>
             </div>
           </form>
@@ -46,18 +52,15 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, useForm } from '@inertiajs/inertia-vue3';
 
-defineProps({
-    errors: Object
+const props =  defineProps({
+  community: Object,
+  errors: Object
 })
 
-const form = useForm({
-  name: '',
-  description: '',
-  slug: ''
-});
+const form = useForm(props.community);
 
 const submit = () => {
-  form.post(route('communities.store'))
+  form.put(route('communities.update', props.community.id))
 };
 
 </script>
