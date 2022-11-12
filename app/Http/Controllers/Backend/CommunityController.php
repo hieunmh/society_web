@@ -16,8 +16,9 @@ class CommunityController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return 'OK';
+    {   
+        $communities = Community::all(); 
+        return Inertia::render('Communities/Index', compact('communities'));
     }
 
     /**
