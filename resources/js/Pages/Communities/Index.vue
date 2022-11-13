@@ -44,7 +44,7 @@
                     </thead>
                     
                     <tbody class="divide-y divide-gray-200 bg-white">
-                      <tr v-for="community in communities" :key="community.id">
+                      <tr v-for="community in communities.data" :key="community.id">
                         <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
                           <!-- <Link :href=" route('frontend.communities.show', community.slug)" class="text-blue-500 hover:text-blue-700 font-semibold">
                             {{ community.name }}
@@ -61,9 +61,9 @@
                             <span class="sr-ony">Edit</span>
                           </Link>
 
-                          <!-- <Link :href="route('communities.destroy', community.slug)" class="text-red-600 hover:text-red-900" method="delete" as="button" type="button">
-                            <span class="sr-only">Edit</span>
-                          </Link> -->
+                          <Link :href="route('communities.destroy', community.id)" class="text-red-600 hover:text-red-900" method="delete" as="button" type="button">
+                            <span class="sr-ony">Delete</span>
+                          </Link>
                         </td>
                       </tr>
                     </tbody>
@@ -71,6 +71,9 @@
 
                   <div class="m-2 p-2">
                     <Pagination :links="communities.links" />
+                    <!-- <Link v-for="community in communities.links" :key="community.id" :href="community.url">
+                      {{ community.label }}
+                    </Link> -->
                   </div>
                 </div>
               </div>
@@ -89,6 +92,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, Link } from '@inertiajs/inertia-vue3';
+import Pagination from '../../Components/Pagination.vue';
 
 defineProps({
   communities: Object
