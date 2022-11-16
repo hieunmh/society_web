@@ -5,7 +5,7 @@
   <AuthenticatedLayout>
     <template #header>
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Edit Community
+        Create Post for {{ community.name }}
       </h2>
     </template>
 
@@ -14,15 +14,15 @@
         <div class="max-w-md mx-auto bg-white m-2 p-6">
           <form @submit.prevent="submit">
             <div>
-              <InputLabel for="name" value="Name" />
-              <TextInput id="name" type="text" class="mt-1 block w-full" v-model="form.name"  autofocus autocomplete="name" />
-              <InputError class="mt-2" :message="errors.name" />
+              <InputLabel for="title" value="Title" />
+              <TextInput id="title" type="text" class="mt-1 block w-full" v-model="form.title"  autofocus autocomplete="title" />
+              <InputError class="mt-2" :message="errors.title" />
             </div>
 
             <div class="mt-4">
-              <InputLabel for="slug" value="Slug" />
-              <TextInput id="slug" type="text" class="mt-1 block w-full" v-model="form.slug"  autocomplete="slug" />
-              <InputError class="mt-2" :message="errors.slug" />
+              <InputLabel for="url" value="Url" />
+              <TextInput id="url" type="url" class="mt-1 block w-full" v-model="form.url" autofocus autocomplete="url" />
+              <InputError class="mt-2" :message="errors.url" />
             </div>
 
             <div class="mt-4">
@@ -33,7 +33,7 @@
             
             <div class="flex items-center justify-end mt-4">
               <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Update
+                Create
               </PrimaryButton>
             </div>
           </form>
@@ -54,13 +54,17 @@ import { Head, useForm } from '@inertiajs/inertia-vue3';
 
 const props =  defineProps({
   community: Object,
-  errors: Object
+    errors: Object
 })
 
-const form = useForm(props.community);
+const form = useForm({
+  title: '',
+  description: '',
+  url: ''
+});
 
 const submit = () => {
-  form.put(route('communities.update', props.community.slug))
+  form.post(route('communities.posts.store', props.community.slug))
 };
 
 </script>

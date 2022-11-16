@@ -55,7 +55,7 @@ class CommunityController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
