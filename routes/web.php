@@ -33,7 +33,7 @@ Route::get('/', function () {
 Route::get('/r/{slug}', [FrontendCommunityController::class, 'show'])->name('frontend.communities.show');
 Route::get('/r/{community_slug}/posts/{post:slug}', [PostController::class, 'show'])->name('frontend.communities.posts.show');
 
-Route::post('/r/{community_slug}/posts/{post:slug}/comments', [PostCommentController::class, 'store'])->name('frontend.communities.posts.comments');
+Route::post('/r/{community_slug}/posts/{post:slug}/comments', [PostCommentController::class, 'store'])->name('frontend.posts.comments');
 
 Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::resource('/communities', CommunityController::class);
