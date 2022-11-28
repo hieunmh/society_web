@@ -14,7 +14,7 @@ class PostVoteController extends Controller
         if (!is_null($isVoted)) {
             if ($isVoted->vote === -1) {
                 $isVoted->update(['vote' => 1]);       
-                $post->increment('votes', 2);
+                $post->increment('votes', 1);
                 return redirect()->back();     
             }
             else if ($isVoted === 1) {
@@ -37,7 +37,7 @@ class PostVoteController extends Controller
         if (!is_null($isVoted)) {
             if ($isVoted->vote === 1) {
                 $isVoted->update(['vote' => -1]);
-                $post->decrement('votes', 2);
+                $post->decrement('votes', 1);
                 return redirect()->back();
             } else if ($isVoted === -1) {
                 return redirect()->back();

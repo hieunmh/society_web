@@ -29,7 +29,6 @@
     </section>
 
     <h1>Community {{ community.name }} show page</h1>
-    <postvote />
   </guest-layout>
 
 </template>

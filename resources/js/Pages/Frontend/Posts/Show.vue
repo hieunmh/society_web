@@ -13,6 +13,7 @@
         <div class=" flex m-2 bg-white text-sm text-slate-400">
           <div>
             <!-- <PostVote :post="post.data"/> -->
+            
           </div>
           <div class="w-full">
             <div class="flex flex-col md:flex-row justify-between m -2">
