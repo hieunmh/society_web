@@ -1,5 +1,5 @@
 <template>
-  <div class=" mt-4 max-w-4xl flex bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 text-white">
+  <div class=" mt-4 max-w-4xl flex bg-white rounded-lg border border-gray-200 shadow-md">
     <div class="mr-3">
       <PostVote :post="post"/>
     </div>
@@ -13,11 +13,11 @@
         </div>
       </div>
 
-      <a href="#">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+      <Link :href="route('frontend.communities.posts.show', [community, post.slug])">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
           {{ post.title }}
         </h5>
-      </a>
+      </Link>
 
       <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
         {{ post.description }}

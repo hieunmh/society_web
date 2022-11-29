@@ -10,7 +10,7 @@
           </h2>
         </div>
 
-        <div class=" flex m-2 bg-white text-sm text-slate-400">
+        <div class="flex m-2 p-2 bg-white text-sm text-slate-400">
           <div>
             <!-- <PostVote :post="post.data"/> -->
             
@@ -70,7 +70,6 @@
       </div>
     </section>
   </guest-layout>
-
 </template>
 
 <script setup>

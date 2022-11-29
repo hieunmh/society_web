@@ -6,8 +6,9 @@
             </div>
 
             <div class="w-4/12 p-4">
-                <div class="m-2 p-2 bg-slate-500 text-white">
+                <div class="m-2 p-2">
                     <h2>Top Communities</h2>
+                    <CommunityList :communities="communities" />
                 </div>
             </div>
         </section>
@@ -19,6 +20,7 @@
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 import PostCard from '@/Components/PostCard.vue';
 import Pagination from '@/Components/Pagination.vue';
+import CommunityList from '@/Components/CommunityList.vue';
 
 defineProps({
     communities: Object,
