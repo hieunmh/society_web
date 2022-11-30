@@ -22,9 +22,18 @@
       </div>
 
       <div class="w-4/12 p-4">
-        <div class="m-2 p-2 bg-slate-500 text-white">
-          <h2>Lastests Communities</h2>
+        <div>
+          <h2 class="font-semibold text-lg p-6 bg-indigo-700 rounded-t-lg text-white">
+            About {{ community.name }}
+          </h2>
+          <p class="bg-white p-4 rounded-b-lg shadow">
+            {{ community.description }}
+          </p>
         </div>
+        <CommunityList class="mt-4" :communities="communities">
+          <template #title>Lastest Communities</template> 
+        </CommunityList>
+
       </div>
     </section>
 
@@ -38,10 +47,12 @@ import GuestLayout from '@/Layouts/GuestLayout.vue';
 import PostCard from '@/Components/PostCard.vue';
 import Pagination from '@/Components/Pagination.vue';
 import { Link } from '@inertiajs/inertia-vue3';
+import CommunityList from '@/Components/CommunityList.vue';
 
 defineProps({
   community: Object,
   posts: Object,
+  communities: Object
 })
 </script>
 

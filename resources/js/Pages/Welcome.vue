@@ -6,10 +6,9 @@
             </div>
 
             <div class="w-4/12 p-4">
-                <div class="m-2 p-2">
-                    <h2>Top Communities</h2>
-                    <CommunityList :communities="communities" />
-                </div>
+                <CommunityList :communities="communities">
+                    <template #title>Top Communities</template>
+                </CommunityList>
             </div>
         </section>
     </guest-layout>
