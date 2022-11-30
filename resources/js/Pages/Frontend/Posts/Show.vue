@@ -20,12 +20,12 @@
               <div>
                 <span class="ml-2 text-sm text-slate-400">Posted by {{ post.data.username }}</span>
               </div>
-              <div v-if="$page.props.auth.auth_check && post.data.owner">
-                <Link :href="route('communities.posts.edit', [community.slug, post.data.slug])" 
+              <div v-if="$page.props.auth.auth_check">
+                <Link v-if="can_update" :href="route('communities.posts.edit', [community.slug, post.data.slug])" 
                   class="font-semi-bold bg-blue-500 hover:bg-blue-700 rounded-md text-white px-4 py-2 mr-2">
                     Edit
                 </Link>
-                <Link :href="route('communities.posts.destroy', [community.slug, post.data.slug])" 
+                <Link v-if="can_delete" :href="route('communities.posts.destroy', [community.slug, post.data.slug])" 
                   class="font-semi-bold bg-red-500 hover:bg-red-700 rounded-md text-white px-4 py-2" method="delete" as="button" type="button">
                     Delete
                 </Link>
@@ -81,7 +81,9 @@ import PostList from '@/Components/PostList.vue';
 const props = defineProps({
   community: Object,
   post: Object,
-  posts: Object
+  posts: Object,
+  can_delete: Boolean,
+  can_update: Boolean
 })
 
 const form = useForm({ 
