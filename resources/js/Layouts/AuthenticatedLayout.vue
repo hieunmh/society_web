@@ -38,9 +38,14 @@ const showingNavigationDropdown = ref(false);
                         <div class="flex">
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
-                                <Link :href="route('communities.index')">
+                                <!-- <Link :href="route('communities.index')">
                                     <ApplicationLogo class="block h-9 w-auto" />
-                                </Link>
+                                </Link> -->
+                                <a href="/">
+                                    <ApplicationLogo class="block h-9 w-auto" />
+                                    All Communities
+                                </a>
+                                
                             </div>
 
                             <!-- Navigation Links -->
