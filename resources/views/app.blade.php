@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- <title inertia>{{ config('app.name', 'Laravel') }}</title> -->
-        <title>NMH Luxury Vip Pro</title>
-
+        <title>Reddit</title>
+    
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
