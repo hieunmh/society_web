@@ -22,7 +22,7 @@ class PostController extends Controller
 
         $post = new PostShowResource($community_post);
 
-        $posts = PostResource::collection($community->posts()->orderBy('votes', 'desc')->take(6)->get());
+        $posts = PostResource::collection($community->posts()->orderBy('votes', 'desc')->take(5)->get());
 
         $can_update = Auth::check() ? Auth::user()->can('update', $community_post) : false;
         $can_delete = Auth::check() ? Auth::user()->can('delete', $community_post) : false;

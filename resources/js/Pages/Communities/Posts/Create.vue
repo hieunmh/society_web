@@ -30,6 +30,13 @@
               <TextInput id="description" type="text" class="mt-1 block w-full" v-model="form.description"  autocomplete="description" />
               <InputError class="mt-2" :message="errors.description" />
             </div>
+
+            <div class="mt-4">
+              <InputLabel for="image" value="Image" />
+              <TextInput id="image" type="text" class="mt-1 block w-full" v-model="form.image"
+                autocomplete="image" />
+              <InputError class="mt-2" :message="errors.image" />
+            </div>
             
             <div class="flex items-center justify-end mt-4">
               <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
@@ -60,7 +67,8 @@ const props =  defineProps({
 const form = useForm({
   title: '',
   description: '',
-  url: ''
+  url: '',
+  image: ''
 });
 
 const submit = () => {

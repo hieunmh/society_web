@@ -34,15 +34,22 @@
             </div>  
             <div class="p-2">
               <h1 class="font-semibold text-3xl text-black">{{ post.data.title }}</h1>
+
+              <div class="flex items-center justify-center my-8">
+                <img :src="post.data.image"  class="w-[50%] rounded-md">
+              </div>
               <p class="text-slate-700 my-2">{{ post.data.description }}</p>
               <a :href="post.data.url" class="font-semibold text-blue-500 text-sm hover:text-blue-200">{{ post.data.url }}</a>
             </div>
+  
             <hr>
             <div>
               <ul role="list" class="divide-y divide-gray-200 m-2 p-2">
                 <li v-for="(comment, index) in post.data.comments" :key="index" class="py-4 flex flex-col">
                   <div class="text-lg">Commented by<span class="font-semi-bold ml-1 text-slate-700">{{ comment.username }}</span></div>
-                  <div class="text-slate-600 m-2 p-2">{{ comment.content }}</div>
+
+                  <div class="text-slate-600 m-2 p-2">{{ comment.content }}</div> 
+
                 </li>
               </ul>
             </div>
@@ -56,7 +63,10 @@
                             -dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your comments..."></textarea>
                 </div>
                 <div class="mt-2">
-                  <button class="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-md">Comment</button>
+                  <button class="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-md">
+                    Comment
+                  
+                  </button>
                 </div>
               </form>
             </div>
@@ -97,8 +107,39 @@ const submit = () => {
   })
 };
 
+
 </script>
 
 <style>
 
 </style>
+
+
+
+
+
+<!-- <template>
+  <div id="app">
+    <div>
+      <textarea v-model="markdown"></textarea>
+    </div>
+    <div v-html="convertMarkdown()"></div>
+  </div>
+</template>
+
+<script>
+import marked from 'marked';
+
+export default {
+  data() {
+    return {
+      markdown: '',
+    };
+  },
+  methods: {
+    convertMarkdown() {
+      return marked(this.markdown);
+    },
+  },
+};
+</script> -->

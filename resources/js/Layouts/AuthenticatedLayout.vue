@@ -38,12 +38,13 @@ const showingNavigationDropdown = ref(false);
                         <div class="flex">
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
-                                <!-- <Link :href="route('communities.index')">
+                                <!-- <Link href="/">
                                     <ApplicationLogo class="block h-9 w-auto" />
                                 </Link> -->
-                                <a href="/">
+                                <a href="/" class="">
                                     <ApplicationLogo class="block h-9 w-auto" />
-                                    All Communities
+                                    <!-- <img src="https://www.redditinc.com/assets/images/site/reddit-logo.png" alt="" class="object-cover h-12 w-12 mt-3"> -->
+                                    All communities
                                 </a>
                                 
                             </div>

@@ -15,9 +15,9 @@ class WelcomeController extends Controller
 
         $posts = CommunityPostResource::collection(Post::with(['user', 'community', 'postVotes' => function($query) {
             $query->where('user_id', auth()->id());
-        }])->withCount('comments')->orderBy('votes', 'desc')->take(12)->get());
+        }])->withCount('comments')->orderBy('votes', 'desc')->take(10)->get());
 
-        $communities = CommunityResource::collection(Community::withCount('posts')->orderBy('posts_count', 'desc')->take(6)->get());
+        $communities = CommunityResource::collection(Community::withCount('posts')->orderBy('posts_count', 'desc')->take(5)->get());
         
         return Inertia::render('Welcome', compact('posts', 'communities'));
     }

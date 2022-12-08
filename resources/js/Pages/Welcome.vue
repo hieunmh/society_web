@@ -20,9 +20,16 @@ import GuestLayout from '@/Layouts/GuestLayout.vue';
 import PostCard from '@/Components/PostCard.vue';
 import Pagination from '@/Components/Pagination.vue';
 import CommunityList from '@/Components/CommunityList.vue';
+import { ref, watch } from 'vue';
+import { Inertia } from '@inertiajs/inertia';
 
-defineProps({
+const props = defineProps({
     communities: Object,
     posts: Object,
 })
+
+const search = ref('');
+watch(search, value => {
+    Inertia.get('/', {search: value});
+});
 </script>

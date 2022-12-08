@@ -18,6 +18,7 @@ class CommunityPostResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
+            // 'image' => $this->image,
             'username' => $this->user->username,
             'slug' => $this->slug,
             'votes' => $this->votes,

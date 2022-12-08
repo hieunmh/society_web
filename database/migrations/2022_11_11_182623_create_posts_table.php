@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('url')->nullable();
+            $table->string('image')->nullable();
             $table->text('description')->nullable();
             $table->integer('votes')->default(0);  
             $table->softDeletes();

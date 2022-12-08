@@ -21,9 +21,16 @@
 
             <div class="mt-4">
               <InputLabel for="url" value="Url" />
-              <TextInput id="url" type="url" class="mt-1 block w-full" v-model="form.url" autofocus autocomplete="url" />
+              <TextInput id="url" type="url" class="mt-1 block w-full" v-model="form.url" autocomplete="url" />
               <InputError class="mt-2" :message="errors.url" />
             </div>
+
+            <div class="mt-4">
+              <InputLabel for="image" value="image" />
+              <TextInput id="image" type="url" class="mt-1 block w-full" v-model="form.image" autocomplete="image" />
+              <InputError class="mt-2" :message="errors.image" />
+            </div>
+            
 
             <div class="mt-4">
               <InputLabel for="description" value="Description" />
@@ -61,6 +68,7 @@ const props =  defineProps({
 const form = useForm({ 
   title: props.post?.title,
   description: props.post?.description,
+  image: props.post?.image,
   url: props.post?.url
 });
 

@@ -21,6 +21,7 @@ class CommunityPostController extends Controller
             'user_id' => auth()->id(),
             'title' => $request->title,
             'url' => $request->url,
+            'image' => $request->image,
             'description' => $request->description,
         ]);
 

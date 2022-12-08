@@ -20,9 +20,9 @@
             </div>
 
               <!-- <div class="mt-4">
-                <InputLabel for="slug" value="Slug" />
-                <TextInput id="slug" type="text" class="mt-1 block w-full" v-model="form.slug"  autocomplete="slug" />
-                <InputError class="mt-2" :message="errors.slug" />
+                <InputLabel for="image" value="image" />
+                <TextInput id="image" type="text" class="mt-1 block w-full" v-model="form.image"  autocomplete="image" />
+                <InputError class="mt-2" :message="errors.image" />
               </div> -->
 
             <div class="mt-4">
